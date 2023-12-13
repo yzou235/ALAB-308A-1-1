@@ -36,9 +36,29 @@ console.log(flattenArray(array));
 // Part 3: Deferred Execution
 
 // Create a simple HTML element to hold text. Cache this HTML element into a JavaScript variable.
-
+const ul = document.getElementById("list");
 
 // Write a function that takes a parameter n and adds a list of all prime numbers between one and n to your HTML element.
+function isPrime(number) {
+    for (let i=2; i < number; i++) {
+        if(number % i === 0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
 
+function addPrime(n) {
+    ul.innerHTML = "";
+    for (let i = 2; i < n; i++) {
+        if(isPrime(i)) {
+            ul.innerHTML += `<li>${i}</li>`;
+        }
+    }
+    alert("the calculation is finished");
+}
+
+addPrime(20);
 
 // Once complete, use the alert() method to alert the user that the calculation is finished.
